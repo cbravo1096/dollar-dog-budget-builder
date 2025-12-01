@@ -1,0 +1,39 @@
+/* Typography: Bubblegum Sans for headings */
+h1, h2, h3, .bubblegum-font {
+    font-family: 'Bubblegum Sans', cursive;
+    letter-spacing: 0.05em;
+}
+
+/* Custom theme colors */
+.primary-text { color: #007bff; }
+.success-bg { background-color: #10b981; }
+.error-bg { background-color: #ef4444; }
+.warning-bg { background-color: #f59e0b; }
+
+/* Bone Pattern Background */
+body {
+    background-color: #f7f7f7;
+    background-image: url("https://dollardogkidsclub.com/wp-content/uploads/2023/06/bones-bg.png");
+    background-size: 150px 150px;
+    background-repeat: repeat;
+    background-attachment: fixed;
+}
+
+/* Main app container background */
+#app {
+    background-color: white;
+}
+
+/* Step container hidden by default */
+.step { display: none; }
+
+/* Simple Confetti animation */
+.confetti-glow {
+    animation: pulse-glow 0.5s ease-in-out forwards;
+}
+
+@keyframes pulse-glow {
+    0% { transform: scale(1); box-shadow: none; }
+    50% { transform: scale(1.05); box-shadow: 0 0 40px rgba(255,255,0,0.8), 0 0 20px rgba(0,0,255,0.6); }
+    100% { transform: scale(1); box-shadow: none; }
+}

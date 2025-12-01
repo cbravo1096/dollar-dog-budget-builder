@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dollar Dog's Budget Builder</title>
+    <!-- Load Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Load Bubblegum Sans from Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bubblegum+Sans&display=swap" rel="stylesheet">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body class="min-h-screen p-4 flex items-center justify-center font-sans">
+
+    <div id="app" class="w-full max-w-2xl rounded-xl shadow-2xl p-6 md:p-10 border-t-8 border-yellow-500">
+        <div class="flex flex-col items-center mb-6">
+            <img src="https://dollardogkidsclub.com/wp-content/uploads/2023/05/dollar-dog-kids-club.png" 
+                 alt="Dollar Dog Mascot Logo" class="w-48 h-auto mb-3"/>
+            <h1 class="text-4xl font-extrabold primary-text text-center bubblegum-font">
+                Dollar Dog's Budget Builder
+            </h1>
+            <p class="text-center text-gray-600 mt-2">
+                We need to make a plan, step by step.
+            </p>
+        </div>
+
+        <!-- Progress Indicator -->
+        <div class="flex justify-between items-center mb-8 text-sm font-semibold text-gray-500 bubblegum-font">
+            <span id="progress-1" class="text-blue-700">1. Income & Goals</span>
+            <div class="w-1/4 h-1 bg-gray-200 rounded-full"></div>
+            <span id="progress-2">2. Allocation</span>
+            <div class="w-1/4 h-1 bg-gray-200 rounded-full"></div>
+            <span id="progress-3">3. Shopping</span>
+            <div class="w-1/4 h-1 bg-gray-200 rounded-full"></div>
+            <span id="progress-4">4. Final Check</span>
+        </div>
+
+        <!-- STEP 1 -->
+        <div id="step-1" class="step bg-yellow-50 border-2 border-yellow-300 p-6 rounded-xl shadow-md">
+            <h2 class="text-2xl font-black text-yellow-800 mb-4 flex items-center bubblegum-font">
+                <span class="text-4xl mr-3">1.</span> Welcome, Smart Saver!
+            </h2>
+            <div class="space-y-4">
+                <div>
+                    <label for="startingAllowanceInput" class="block text-xl font-bold text-gray-700 mb-2">
+                        How much money do you have to start with? (e.g., $20.00)
+                    </label>
+                    <input type="number" id="startingAllowanceInput" min="5" value="20.00" step="1.00"
+                           class="mt-1 block w-full rounded-md border-yellow-500 shadow-lg p-3 text-2xl focus:ring-yellow-500 focus:border-yellow-500">
+                </div>
+
+                <p class="text-lg font-semibold text-gray-700">First, Dollar Dog must pay his Needs ($3.00 total):</p>
+                <ul class="text-base list-disc list-inside ml-4 space-y-1">
+                    <li>Dog Food (Always needed): <span class="float-right font-semibold">$2.00</span></li>
+                    <li>Vet Fund (Future health): <span class="float-right font-semibold">$1.00</span></li>
+                </ul>
+                <p class="text-xl font-bold border-t pt-2 flex justify-between items-center">
+                    <span>Money After Fixed Needs:</span> 
+                    <span id="moneyAfterFixed" class="text-indigo-600">$17.00</span>
+                </p>
+                <p class="text-sm text-gray-500 italic">
+                    This remaining amount is what you have left to save, share, and spend!
+                </p>
+            </div>
+        </div>
+
+        <!-- STEP 2 -->
+        <div id="step-2" class="step border-2 border-blue-300 p-6 rounded-xl shadow-md">
+            <h2 class="text-2xl font-black text-blue-700 mb-6 flex items-center bubblegum-font">
+                <span class="text-4xl mr-3">2.</span> Allocate SAVE & SHARE
+            </h2>
+            <div class="space-y-6">
+                <div>
+                    <label for="saveInput" class="block text-xl font-bold text-gray-700 mb-2">
+                        SAVE 🏦 (Goal: Put at least $5.00 for your toy!)
+                    </label>
+                    <input type="number" id="saveInput" min="0" value="5.00" step="0.50"
+                           class="mt-1 block w-full rounded-md border-blue-500 shadow-lg p-3 text-2xl focus:ring-blue-500 focus:border-blue-500">
+                </div>
+
+                <div>
+                    <label for="shareInput" class="block text-xl font-bold text-gray-700 mb-2">
+                        SHARE ❤️ (Donation to friends or charity)
+                    </label>
+                    <input type="number" id="shareInput" min="0" value="0.00" step="0.50"
+                           class="mt-1 block w-full rounded-md border-blue-500 shadow-lg p-3 text-2xl focus:ring-blue-500 focus:border-blue-500">
+                </div>
+
+                <div class="p-4 bg-red-100 rounded-lg border-2 border-red-400">
+                    <p class="font-bold text-red-700 text-lg">Your Maximum Spending Limit:</p>
+                    <p id="spendCalculated" class="text-4xl font-extrabold text-red-900 mt-1">$0.00</p>
+                    <p class="text-sm text-red-600 italic mt-2">
+                        This is the only money left for fun shopping!
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <!-- STEP 3 -->
+        <div id="step-3" class="step border-2 border-green-300 p-6 rounded-xl shadow-md">
+            <h2 class="text-2xl font-black text-green-700 mb-6 flex items-center bubblegum-font">
+                <span class="text-4xl mr-3">3.</span> Fun Shopping!
+            </h2>
+            <p id="spendLimitDisplay" class="text-xl font-bold text-gray-700 mb-4">
+                Your SPENDING LIMIT is: <span id="currentLimit" class="text-red-700">$0.00</span>
+            </p>
+            <div id="shoppingList" class="space-y-3 mb-6"></div>
+            <div id="cartStatusBox" class="p-4 bg-gray-100 rounded-lg shadow-inner border-2 border-transparent transition-colors duration-300">
+                <p class="font-semibold text-gray-700">Shopping Cart Total:</p>
+                <p id="cartTotal" class="text-3xl font-extrabold text-indigo-600 mt-1">$0.00</p>
+            </div>
+        </div>
+
+        <!-- STEP 4 -->
+        <div id="step-4" class="step border-2 border-indigo-300 p-6 rounded-xl shadow-md">
+            <h2 class="text-2xl font-black text-indigo-700 mb-6 flex items-center bubblegum-font">
+                <span class="text-4xl mr-3">4.</span> Check the Budget!
+            </h2>
+            <p class="text-xl font-semibold mb-4">Dollar Dog reviewed your budget:</p>
+            <div id="finalStatus" class="mt-4 p-6 text-center text-white rounded-xl transition-all duration-300">
+                <p class="text-xl font-bold">Checking budget...</p>
+            </div>
+            <div id="resetButtonContainer" class="mt-6 text-center" style="display: none;">
+                <button onclick="resetGame()" class="px-8 py-3 bg-yellow-500 text-white font-black text-lg rounded-full shadow-lg hover:bg-yellow-600 transition transform hover:scale-105">
+                    Build Another Budget
+                </button>
+            </div>
+        </div>
+
+        <!-- Navigation Buttons -->
+        <div id="navigation" class="flex justify-between mt-8">
+            <button id="backBtn" onclick="prevStep()" class="px-6 py-2 bg-gray-300 text-gray-700 font-bold rounded-lg transition hover:bg-gray-400 disabled:opacity-50">
+                ← Back
+            </button>
+            <button id="nextBtn" onclick="nextStep()" class="px-6 py-2 bg-blue-500 text-white font-bold rounded-lg transition hover:bg-blue-600 disabled:opacity-50">
+                Next Step →
+            </button>
+        </div>
+
+    </div>
+
+    <!-- JS -->
+    <script src="js/script.js"></script>
+</body>
+</html>
