@@ -22,11 +22,12 @@
         .error-bg { background-color: #ef4444; } /* Red */
         .warning-bg { background-color: #f59e0b; } /* Amber */
 
-        /* Defined Bone Pattern Background using user-provided URL */
+        /* Defined Bone Pattern Background using a stable, secure placeholder */
         body {
             background-color: #f7f7f7; /* Fallback color */
-            background-image: url("https://dollardogkidsclub.com/wp-content/uploads/2023/06/bones-bg.png");
-            background-size: 150px 150px; /* Adjust size as needed, e.g., 'contain', 'cover', or specific px */
+            /* Using a secure placeholder for the repeating pattern for stability */
+            background-image: url("https://placehold.co/150x150/e0e0e0/ffffff?text=Bone+Pattern");
+            background-size: 150px 150px;
             background-repeat: repeat;
             background-attachment: fixed; 
         }
@@ -59,7 +60,8 @@
 
     <div id="app" class="w-full max-w-2xl rounded-xl shadow-2xl p-6 md:p-10 border-t-8 border-yellow-500">
         <div class="flex flex-col items-center mb-6">
-            <!-- Dollar Dog Logo - Using the direct URL provided by the user --><img src="https://dollardogkidsclub.com/wp-content/uploads/2023/05/dollar-dog-kids-club.png" 
+            <!-- Dollar Dog Logo - Using a secure placeholder image -->
+            <img src="https://placehold.co/200x80/007bff/ffffff?text=Dollar+Dog+Logo" 
                  alt="Dollar Dog Mascot Logo" class="w-48 h-auto mb-3"/>
             
             <h1 class="text-4xl font-extrabold primary-text text-center bubblegum-font">
