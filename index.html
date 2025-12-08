@@ -196,10 +196,11 @@
 
         // --- SPENDING ITEMS ---
         const SPENDING_ITEMS = [
-            { id: 1, name: "Gourmet Treat 🍖", price: 2.00 },
-            { id: 2, name: "Chew Toy 🎾", price: 4.00 },
-            { id: 3, name: "New Leash (Want)", price: 6.00 },
-            { id: 4, name: "Big Bone (Mega-Want)", price: 8.00 }
+            { id: 1, name: "Small Toy 🧸", price: 1.00 }, // NEW $1 ITEM
+            { id: 2, name: "Gourmet Treat 🍖", price: 2.00 },
+            { id: 3, name: "Chew Toy 🎾", price: 4.00 },
+            { id: 4, name: "New Leash (Want)", price: 6.00 },
+            { id: 5, name: "Big Bone (Mega-Want)", price: 8.00 }
         ];
 
         // --- GAME STATE ---
