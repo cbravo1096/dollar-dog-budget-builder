@@ -22,11 +22,10 @@
         .error-bg { background-color: #ef4444; } /* Red */
         .warning-bg { background-color: #f59e0b; } /* Amber */
 
-        /* Defined Bone Pattern Background using a stable, secure placeholder */
+        /* Defined Bone Pattern Background using the provided URL */
         body {
             background-color: #f7f7f7; /* Fallback color */
-            /* Using a secure placeholder for the repeating pattern for stability */
-            background-image: url("https://placehold.co/150x150/e0e0e0/ffffff?text=Bone+Pattern");
+            background-image: url("https://dollardogkidsclub.com/wp-content/uploads/2023/06/bones-bg.png");
             background-size: 150px 150px;
             background-repeat: repeat;
             background-attachment: fixed; 
@@ -60,15 +59,15 @@
 
     <div id="app" class="w-full max-w-2xl rounded-xl shadow-2xl p-6 md:p-10 border-t-8 border-yellow-500">
         <div class="flex flex-col items-center mb-6">
-            <!-- Dollar Dog Logo - Using a secure placeholder image -->
-            <img src="https://placehold.co/200x80/007bff/ffffff?text=Dollar+Dog+Logo" 
+            <!-- Dollar Dog Logo - Using the provided URL -->
+            <img src="https://dollardogkidsclub.com/wp-content/uploads/2023/05/dollar-dog-kids-club.png" 
                  alt="Dollar Dog Mascot Logo" class="w-48 h-auto mb-3"/>
             
             <h1 class="text-4xl font-extrabold primary-text text-center bubblegum-font">
                 Dollar Dog's Budget Builder
             </h1>
             <p class="text-center text-gray-600 mt-2">
-                We need to make a plan, step by step.
+                Help Dollar Dog Build A Budget that Balances!
             </p>
         </div>
 
@@ -96,14 +95,15 @@
                            class="mt-1 block w-full rounded-md border-yellow-500 shadow-lg p-3 text-2xl focus:ring-yellow-500 focus:border-yellow-500">
                 </div>
 
-                <p class="text-lg font-semibold text-gray-700">First, Dollar Dog must pay his Needs ($3.00 total):</p>
+                <p class="text-lg font-semibold text-gray-700">First, Dollar Dog must pay his needs.</p>
                 <ul class="text-base list-disc list-inside ml-4 space-y-1">
-                    <li>Dog Food (Always needed): <span class="float-right font-semibold">$2.00</span></li>
-                    <li>Vet Fund (Future health): <span class="float-right font-semibold">$1.00</span></li>
+                    <li>Food: <span class="float-right font-semibold">$2.00</span></li>
+                    <li>Shelter: <span class="float-right font-semibold">$1.00</span></li>
+                    <li>Vet Fund for the Future: <span class="float-right font-semibold">$1.00</span></li>
                 </ul>
                 <p class="text-xl font-bold border-t pt-2 flex justify-between items-center">
-                    <span>Money After Fixed Needs:</span> 
-                    <span id="moneyAfterFixed" class="text-indigo-600">$17.00</span>
+                    <span>Money Leftover:</span> 
+                    <span id="moneyAfterFixed" class="text-indigo-600">$16.00</span>
                 </p>
                 <p class="text-sm text-gray-500 italic">
                     This remaining amount is what you have left to save, share, and spend!
@@ -189,7 +189,7 @@
 
     <script>
         // --- GAME CONSTANTS / DYNAMIC STATE ---
-        const MANDATORY_NEEDS = 3.00; // Fixed: Dog Food ($2.00) + Vet Fund ($1.00)
+        const MANDATORY_NEEDS = 4.00; // UPDATED: Food ($2.00) + Shelter ($1.00) + Vet Fund ($1.00) = $4.00
         const MINIMUM_SAVE_GOAL = 5.00;
         const MAX_STEPS = 4;
         let totalAllowance = 20.00; // Dynamic state variable, initialized to default
